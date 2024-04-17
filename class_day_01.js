@@ -781,3 +781,37 @@ class Cat extends Animal {
 
 const bryceCat = new Cat("Bryce", false);
 console.log(bryceCat._name); // output: Bryce
+
+//For Nurse Case
+
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+//Create the Nurse class as a child of Hospital Employee
+//With the following properties and methods:
+// property: _name. _remainingVacationDays inside the constructor and _certifications
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+  }
+}
+
+const nurseOlynyk = new Nurse("Olynyk", ["Trauma", "Pediatrics"]);
+console.log(nurseOlynyk);
