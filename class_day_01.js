@@ -777,10 +777,35 @@ class Cat extends Animal {
     super(name);
     this._usesLitter = usesLitter;
   }
+  get usesLitter() {
+    return this._usesLitter;
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+  get usesLitter() {
+    return this._usesLitter;
+  }
 }
 
 const bryceCat = new Cat("Bryce", false);
+const miloDog = new Dog("milo", false);
 console.log(bryceCat._name); // output: Bryce
+console.log(miloDog._name); // output: Milo
+
+bryceCat.incrementBehavior(); // Call .incrementBehavior() on Cat instance
+miloDog.incrementBehavior(); // Call .incrementBehavior() on Cat instance
+console.log(bryceCat.behavior); // Output is 1. Why? Explain this to yourself
+console.log(miloDog.behavior); // Output is 1. Why? Explain this to yourself
+
+/*
+The Cat class inherits the _behavior property, behavior getter and the incrementBehavior() method 
+from Animal class. 
+*/
 
 //For Nurse Case
 
@@ -801,6 +826,9 @@ class HospitalEmployee {
   takeVacationDays(daysOff) {
     this._remainingVacationDays -= daysOff;
   }
+  static generatePassword() {
+    return Math.floor(Math.random() * 10000);
+  }
 }
 
 //Create the Nurse class as a child of Hospital Employee
@@ -811,7 +839,22 @@ class Nurse extends HospitalEmployee {
     super(name);
     this._certifications = certifications;
   }
+
+  get certifications() {
+    return this._certifications;
+  }
+
+  addCertification(newCertification) {
+    this._certifications.push(newCertification);
+  }
 }
 
 const nurseOlynyk = new Nurse("Olynyk", ["Trauma", "Pediatrics"]);
-console.log(nurseOlynyk);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
+nurseOlynyk.addCertification("Genetics");
+console.log(nurseOlynyk.certifications);
+
+console.log(
+  `The remaining vacation days for ${Nurse.name} is ${nurseOlynyk.remainingVacationDays} days`
+);
