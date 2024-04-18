@@ -753,54 +753,54 @@ Write a function groceries() that takes an array of object literals of grocery i
 
 //Inheritance III
 
-class Animal {
-  constructor(name) {
-    this._name = name;
-    this._behavior = 0;
-  }
+// class Animal {
+//   constructor(name) {
+//     this._name = name;
+//     this._behavior = 0;
+//   }
 
-  get name() {
-    return this._name;
-  }
+//   get name() {
+//     return this._name;
+//   }
 
-  get behavior() {
-    return this._behavior;
-  }
+//   get behavior() {
+//     return this._behavior;
+//   }
 
-  incrementBehavior() {
-    this._behavior++;
-  }
-}
+//   incrementBehavior() {
+//     this._behavior++;
+//   }
+// }
 
-class Cat extends Animal {
-  constructor(name, usesLitter) {
-    super(name);
-    this._usesLitter = usesLitter;
-  }
-  get usesLitter() {
-    return this._usesLitter;
-  }
-}
+// class Cat extends Animal {
+//   constructor(name, usesLitter) {
+//     super(name);
+//     this._usesLitter = usesLitter;
+//   }
+//   get usesLitter() {
+//     return this._usesLitter;
+//   }
+// }
 
-class Dog extends Animal {
-  constructor(name, usesLitter) {
-    super(name);
-    this._usesLitter = usesLitter;
-  }
-  get usesLitter() {
-    return this._usesLitter;
-  }
-}
+// class Dog extends Animal {
+//   constructor(name, usesLitter) {
+//     super(name);
+//     this._usesLitter = usesLitter;
+//   }
+//   get usesLitter() {
+//     return this._usesLitter;
+//   }
+// }
 
-const bryceCat = new Cat("Bryce", false);
-const miloDog = new Dog("milo", false);
-console.log(bryceCat._name); // output: Bryce
-console.log(miloDog._name); // output: Milo
+// const bryceCat = new Cat("Bryce", false);
+// const miloDog = new Dog("milo", false);
+// console.log(bryceCat._name); // output: Bryce
+// console.log(miloDog._name); // output: Milo
 
-bryceCat.incrementBehavior(); // Call .incrementBehavior() on Cat instance
-miloDog.incrementBehavior(); // Call .incrementBehavior() on Cat instance
-console.log(bryceCat.behavior); // Output is 1. Why? Explain this to yourself
-console.log(miloDog.behavior); // Output is 1. Why? Explain this to yourself
+// bryceCat.incrementBehavior(); // Call .incrementBehavior() on Cat instance
+// miloDog.incrementBehavior(); // Call .incrementBehavior() on Cat instance
+// console.log(bryceCat.behavior); // Output is 1. Why? Explain this to yourself
+// console.log(miloDog.behavior); // Output is 1. Why? Explain this to yourself
 
 /*
 The Cat class inherits the _behavior property, behavior getter and the incrementBehavior() method 
@@ -809,52 +809,92 @@ from Animal class.
 
 //For Nurse Case
 
-class HospitalEmployee {
-  constructor(name) {
-    this._name = name;
-    this._remainingVacationDays = 20;
-  }
+// class HospitalEmployee {
+//   constructor(name) {
+//     this._name = name;
+//     this._remainingVacationDays = 20;
+//   }
 
-  get name() {
-    return this._name;
-  }
+//   get name() {
+//     return this._name;
+//   }
 
-  get remainingVacationDays() {
-    return this._remainingVacationDays;
-  }
+//   get remainingVacationDays() {
+//     return this._remainingVacationDays;
+//   }
 
-  takeVacationDays(daysOff) {
-    this._remainingVacationDays -= daysOff;
-  }
-  static generatePassword() {
-    return Math.floor(Math.random() * 10000);
-  }
+//   takeVacationDays(daysOff) {
+//     this._remainingVacationDays -= daysOff;
+//   }
+//   static generatePassword() {
+//     return Math.floor(Math.random() * 10000);
+//   }
+// }
+
+// //Create the Nurse class as a child of Hospital Employee
+// //With the following properties and methods:
+// // property: _name. _remainingVacationDays inside the constructor and _certifications
+// class Nurse extends HospitalEmployee {
+//   constructor(name, certifications) {
+//     super(name);
+//     this._certifications = certifications;
+//   }
+
+//   get certifications() {
+//     return this._certifications;
+//   }
+
+//   addCertification(newCertification) {
+//     this._certifications.push(newCertification);
+//   }
+// }
+
+// const nurseOlynyk = new Nurse("Olynyk", ["Trauma", "Pediatrics"]);
+// nurseOlynyk.takeVacationDays(5);
+// console.log(nurseOlynyk.remainingVacationDays);
+// nurseOlynyk.addCertification("Genetics");
+// console.log(nurseOlynyk.certifications);
+
+// console.log(
+//   `The remaining vacation days for ${Nurse.name} is ${nurseOlynyk.remainingVacationDays} days`
+// );
+
+console.log("I'm learning about");
+
+for (let idx = 0; idx < 999999999; idx++) {}
+
+// The second console.log() statement is
+// delayed by the for loop's execution
+console.log("the Event Loop");
+
+console.log("This is the first line of code in app.js.");
+
+function usingsetTimeout() {
+  console.log("I'm going to be queued in the Event Loop.");
+}
+setTimeout(usingsetTimeout, 3000);
+
+console.log("This is the last line of code in app.js.");
+
+const shopForBeans = () => {
+  return new Promise((resolve, reject) => {
+    const beanTypes = ["kidney", "fava", "pinto", "black", "garbanzo"];
+    setTimeout(() => {
+      let randomIndex = Math.floor(Math.random() * beanTypes.length);
+      let beanType = beanTypes[randomIndex];
+      console.log(`2. I bought ${beanType} beans because they were on sale.`);
+      resolve(beanType);
+    }, 1000);
+  });
+};
+
+async function getBeans() {
+  console.log(`1. Heading to the store to buy beans...`);
+  let value = await shopForBeans();
+  console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
 }
 
-//Create the Nurse class as a child of Hospital Employee
-//With the following properties and methods:
-// property: _name. _remainingVacationDays inside the constructor and _certifications
-class Nurse extends HospitalEmployee {
-  constructor(name, certifications) {
-    super(name);
-    this._certifications = certifications;
-  }
-
-  get certifications() {
-    return this._certifications;
-  }
-
-  addCertification(newCertification) {
-    this._certifications.push(newCertification);
-  }
-}
-
-const nurseOlynyk = new Nurse("Olynyk", ["Trauma", "Pediatrics"]);
-nurseOlynyk.takeVacationDays(5);
-console.log(nurseOlynyk.remainingVacationDays);
-nurseOlynyk.addCertification("Genetics");
-console.log(nurseOlynyk.certifications);
-
+getBeans();
 console.log(
-  `The remaining vacation days for ${Nurse.name} is ${nurseOlynyk.remainingVacationDays} days`
+  "Describe what happens with this `console.log()` statement as well."
 );
