@@ -859,42 +859,165 @@ from Animal class.
 //   `The remaining vacation days for ${Nurse.name} is ${nurseOlynyk.remainingVacationDays} days`
 // );
 
-console.log("I'm learning about");
+// console.log("I'm learning about");
 
-for (let idx = 0; idx < 999999999; idx++) {}
+// for (let idx = 0; idx < 999999999; idx++) {}
 
-// The second console.log() statement is
-// delayed by the for loop's execution
-console.log("the Event Loop");
+// // The second console.log() statement is
+// // delayed by the for loop's execution
+// console.log("the Event Loop");
 
-console.log("This is the first line of code in app.js.");
+// console.log("This is the first line of code in app.js.");
 
-function usingsetTimeout() {
-  console.log("I'm going to be queued in the Event Loop.");
-}
-setTimeout(usingsetTimeout, 3000);
+// function usingsetTimeout() {
+//   console.log("I'm going to be queued in the Event Loop.");
+// }
+// setTimeout(usingsetTimeout, 3000);
 
-console.log("This is the last line of code in app.js.");
+// console.log("This is the last line of code in app.js.");
 
-const shopForBeans = () => {
-  return new Promise((resolve, reject) => {
-    const beanTypes = ["kidney", "fava", "pinto", "black", "garbanzo"];
-    setTimeout(() => {
-      let randomIndex = Math.floor(Math.random() * beanTypes.length);
-      let beanType = beanTypes[randomIndex];
-      console.log(`2. I bought ${beanType} beans because they were on sale.`);
-      resolve(beanType);
-    }, 1000);
-  });
-};
+// const shopForBeans = () => {
+//   return new Promise((resolve, reject) => {
+//     const beanTypes = ["kidney", "fava", "pinto", "black", "garbanzo"];
+//     setTimeout(() => {
+//       let randomIndex = Math.floor(Math.random() * beanTypes.length);
+//       let beanType = beanTypes[randomIndex];
+//       console.log(`2. I bought ${beanType} beans because they were on sale.`);
+//       resolve(beanType);
+//     }, 1000);
+//   });
+// };
 
-async function getBeans() {
-  console.log(`1. Heading to the store to buy beans...`);
-  let value = await shopForBeans();
-  console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
-}
+// async function getBeans() {
+//   console.log(`1. Heading to the store to buy beans...`);
+//   let value = await shopForBeans();
+//   console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
+// }
 
-getBeans();
-console.log(
-  "Describe what happens with this `console.log()` statement as well."
-);
+// getBeans();
+// console.log(
+//   "Describe what happens with this `console.log()` statement as well."
+// );
+
+//Promise
+
+// const inventory = {
+//   sunglasses: 0,
+//   pants: 1088,
+//   bags: 1344,
+// };
+
+// // Write your code below:
+// const myExecutor = (resolve, reject) => {
+//   if (inventory.sunglasses > 0) {
+//     resolve("Sunglasses order processed.");
+//   } else {
+//     reject("That item is sold out.");
+//   }
+// };
+
+// const orderSunglasses = () => {
+//   return new Promise(myExecutor);
+// };
+
+// const orderPromise = orderSunglasses();
+
+// console.log(orderPromise); //try to change sunglasses to 0, see what's the output
+
+// const delayedHello = () => {
+//   console.log("Hi! This is an asynchronous greeting!");
+// };
+
+// setTimeout(delayedHello, 2000);
+
+// const returnPromiseFunction = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("I resolved!");
+//     }, 1000);
+//   });
+// };
+
+// const prom = returnPromiseFunction();
+
+// console.log("This is the first line of code in app.js.");
+// // Keep the line above as the first line of code
+// // Write your code here:
+
+// const usingSTO = () => {
+//   console.log("This line of code will log to the console last.");
+// };
+
+// setTimeout(usingSTO, 200);
+
+// // Keep the line below as the last line of code:
+// console.log("This is the last line of code in app.js.");
+
+// const prom = new Promise((resolve, reject) => {
+//   resolve("Yay!");
+// });
+
+// const handleSuccess = (resolvedValue) => {
+//   console.log(resolvedValue);
+// };
+
+// prom.then(handleSuccess); // Prints: 'Yay!'
+
+// let prom = new Promise((resolve, reject) => {
+//   let num = Math.random();
+//   if (num < 0.5) {
+//     resolve("Yay!");
+//   } else {
+//     reject("Ohhh noooo!");
+//   }
+// });
+
+// const handleSuccess = (resolvedValue) => {
+//   console.log(resolvedValue);
+// };
+
+// const handleFailure = (rejectionReason) => {
+//   console.log(rejectionReason);
+// };
+
+// prom.then(handleSuccess, handleFailure);
+
+//Check Inventory
+
+// const { checkInventory } = require("./library.js");
+
+// const order = [
+//   ["sunglasses", 2],
+//   ["bags", 2],
+// ];
+
+// // Write your code below:
+// const handleSuccess = (resolvedValue) => {
+//   console.log(resolvedValue);
+// };
+
+// const handleFailure = (rejectReason) => {
+//   console.log(rejectReason);
+// };
+
+// checkInventory(order).then(handleSuccess, handleFailure);
+
+//Use catch to catch the error
+// const { checkInventory } = require("./library.js");
+
+// const order = [
+//   ["sunglasses", 1],
+//   ["bags", 2],
+// ];
+
+// const handleSuccess = (resolvedValue) => {
+//   console.log(resolvedValue);
+// };
+
+// const handleFailure = (rejectReason) => {
+//   console.log(rejectReason);
+// };
+
+// // Write your code below:
+// // checkInventory(order).then(handleSuccess).catch(handleFailure); with catch
+// // checkInventory(order).then(handleSuccess, handleFailure); without catch
