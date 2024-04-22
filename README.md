@@ -7,3 +7,5 @@ You might not know how they feel. They wanted to be same as you, sit and relax o
 Enjoy your day Starbuck. -some tot from Praphan which you might not agree with
 
 this is all about the javascript from codecademy.
+
+Some of us born rich, some less rich.
