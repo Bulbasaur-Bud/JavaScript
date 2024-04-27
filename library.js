@@ -38,9 +38,9 @@
 // };
 
 // //Explain this.
-// /*
+/*
 // The selected code block defines a function called checkInventory that takes in an order object as a parameter. Inside the function, an array called itemsArr is created by accessing the items property of the order object. Then, the variable inStock is assigned the result of the every() method being called on itemsArr. This method checks if every element in itemsArr meets a certain condition. The condition is specified as a callback function that checks if the inventory of each item in the store is greater than or equal to the quantity specified in the item array. The result of the every() method is assigned to inStock. If inStock is true, meaning all items are in stock, a total variable is initialized to 0. Then, a forEach() method is called on itemsArr to calculate the total cost by multiplying the quantity (item[1]) with the cost of each item in the store (store[item[0]].cost) and adding it to total. Finally, a success message is printed to the console and a promise is resolved with the order and total as the resolution value. If any items are not in stock, a rejection message is returned with a promise.
-// */
+*/
 // const checkInventory = (order) => {
 //   return new Promise((resolve, reject) => {
 //     setTimeout(() => {
@@ -203,26 +203,26 @@
 
 //Promise ALL
 
-const checkAvailability = (itemName, distributorName) => {
-  console.log(`Checking availability of ${itemName} at ${distributorName}...`);
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (restockSuccess()) {
-        console.log(`${itemName} are in stock at ${distributorName}`);
-        resolve(itemName);
-      } else {
-        reject(
-          `Error: ${itemName} is unavailable from ${distributorName} at this time.`
-        );
-      }
-    }, 1000);
-  });
-};
+// const checkAvailability = (itemName, distributorName) => {
+//   console.log(`Checking availability of ${itemName} at ${distributorName}...`);
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (restockSuccess()) {
+//         console.log(`${itemName} are in stock at ${distributorName}`);
+//         resolve(itemName);
+//       } else {
+//         reject(
+//           `Error: ${itemName} is unavailable from ${distributorName} at this time.`
+//         );
+//       }
+//     }, 1000);
+//   });
+// };
 
-module.exports = { checkAvailability };
+// module.exports = { checkAvailability };
 
-// This is a function that returns true 80% of the time
-// We're using it to simulate a request to the distributor being successful this often
-function restockSuccess() {
-  return Math.random() > 0.2;
-}
+// // This is a function that returns true 80% of the time
+// // We're using it to simulate a request to the distributor being successful this often
+// function restockSuccess() {
+//   return Math.random() > 0.2;
+// }
