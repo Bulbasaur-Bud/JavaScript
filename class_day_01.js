@@ -1204,12 +1204,48 @@ from Animal class.
 
 // announceDinner();
 
-const shopForBeans = require("./library.js");
+// const shopForBeans = require("./library.js");
 
-async function getBeans() {
-  console.log(`1. Heading to the store to buy beans...`);
-  let value = await shopForBeans();
-  console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
+// async function getBeans() {
+//   console.log(`1. Heading to the store to buy beans...`);
+//   let value = await shopForBeans();
+//   console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
+// }
+
+// getBeans();
+
+//nativePromiseVersion()
+// function nativePromiseVersion() {
+//   returnsFirstPromise()
+//     .then((firstValue) => {
+//       console.log(firstValue);
+//       return returnsSecondPromise(firstValue);
+//     })
+//     .then((secondValue) => {
+//       console.log(secondValue);
+//     });
+// }
+
+/*
+Let's break down what's happening in the nativePromiseVersion() function:
+1. Within our function, we use two functions which return promises:
+returnsFirstPromise() and returnsSecondPromise(). 
+2. We invoke returnFirstPromise() & ensure that the first promise resolve
+by using .then()
+3. In the callback of our first .then(). we log the resolved value of the 
+first promise, firstValue, and then return returnsSecondPromise(firstValue)
+4. We use another .then() to print the second promise's resolved 
+value of the console.
+*/
+
+const { shopForBeans, soakTheBeans, cookTheBeans } = require("./library.js");
+
+// Write your code below:
+async function makeBeans() {
+  let type = await shopForBeans();
+  let isSoft = await soakTheBeans(type);
+  let dinner = await cookTheBeans(isSoft);
+  console.log(dinner);
 }
 
-getBeans();
+makeBeans();
